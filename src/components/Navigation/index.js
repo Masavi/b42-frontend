@@ -20,7 +20,6 @@ const Navigation = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
       <Navbar color="light" light expand="md">
         <NavbarBrand href="/">reactstrap</NavbarBrand>
         <NavbarToggler onClick={toggle} />
@@ -53,7 +52,6 @@ const Navigation = (props) => {
           <NavbarText>Simple Text</NavbarText>
         </Collapse>
       </Navbar>
-    </div>
   );
 }
 
