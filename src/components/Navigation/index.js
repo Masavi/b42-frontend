@@ -13,11 +13,12 @@ import {
 
 const Navigation = () => {
  const [isOpen, setIsOpen] = useState(false);
- const { isAuth } = useContext(AuthContext);
+ const { isAuth, user } = useContext(AuthContext);
 
  const toggle = () => setIsOpen(!isOpen);
 
  const publicNavbar = () => {
+  console.log(user);
    return (<Navbar
      className="navbar navbar-dark bg-dark"
      // style={{ backgroundColor: "black", color: "red" }}
@@ -38,16 +39,21 @@ const Navigation = () => {
  }
 
  const authNavbar = () => {
-  return (<Navbar
+  console.log(user);
+  return (
+  <Navbar
     className="navbar navbar-dark bg-dark"
     // style={{ backgroundColor: "black", color: "red" }}
     expand="md">
-    <NavbarBrand tag={Link} to="/">Maui App</NavbarBrand>
+    <NavbarBrand tag={Link} to="/">{`¡Bienvenid@ ${user.first_name}!`}</NavbarBrand>
     <NavbarToggler onClick={toggle} />
     <Collapse isOpen={isOpen} navbar>
       <Nav className="mr-auto" navbar>
         <NavItem>
           <NavLink tag={Link} to="/logout">Logout</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink tag={Link} to="/users">Usuarios</NavLink>
         </NavItem>
       </Nav>
     </Collapse>
